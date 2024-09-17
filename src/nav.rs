@@ -1,11 +1,18 @@
 use leptos::*;
 use leptos_router::*;
 
+use crate::{
+    account::*,
+    login::*
+};
+
 #[component]
 pub fn Navigation() -> impl IntoView {
+    let user = expect_context::<User>();
+
     view! {
         <header class="w-full bg-sm-primary">
-            <nav class="flex p-4 sm:px-10 lg:px-14 border-b-2 border-white/15">
+            <nav class="flex p-4 sm:pl-10 lg:pl-14 border-b-2 border-white/15">
                 <A href="/">
                     <img
                         class="h-8 sm:h-10 w-auto"
@@ -19,7 +26,15 @@ pub fn Navigation() -> impl IntoView {
                     <NavElem text="Merch" href="/merch"/>
                     <NavElem text="Stickers" href="/stickers"/>
                     <NavElem text="Contact" href="/contact"/>
-                    <Login/>
+                    {move || if !user.logged_in() {
+                        view! {
+                            <Login/>
+                        }.into_view()
+                    } else {
+                        view! {
+                            <Logout/>
+                        }.into_view()
+                    }}
                 </NavElements>
             </nav>
         </header>
@@ -29,18 +44,21 @@ pub fn Navigation() -> impl IntoView {
 #[component]
 fn NavElements(children: Children) -> impl IntoView {
     view! {
-        <ul // style:text-shadow="-0.5px 1px rgba(0,0,0,0.5)"
-        class="list-none hidden w-full justify-end text-lg lg:text-xl text-[#eee] visited:text-[#eee]
-        hover:text-white sm:flex sm:gap-2 md:gap-3">{children()}</ul>
-    }
-}
-
-#[component]
-fn Login() -> impl IntoView {
-    view! {
-        <li class="bg-sm-light/80 my-auto px-4 py-1 rounded-lg hover:bg-white/5 sm:ml-4 lg:ml-8">
-            "Log in"
-        </li>
+        <div class="w-full flex justify-end text-[#eee] visited:text-[#eee]">
+            <ul 
+                // style:text-shadow="-0.5px 1px rgba(0,0,0,0.5)"
+                class="hidden md:flex list-none text-lg lg:text-xl hover:text-white lg:gap-3"
+            >
+                {children()}
+            </ul>
+            <div class="flex md:hidden">
+                <img
+                    class="h-8 sm:h-10 w-auto mr-1"
+                    src="/public/images/hamburger.svg"
+                    alt="Menu"
+                />
+            </div>
+        </div>
     }
 }
 

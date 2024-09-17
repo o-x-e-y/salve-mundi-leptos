@@ -1,7 +1,9 @@
 mod activities;
+mod account;
 mod commissions;
 mod contact;
 mod home;
+mod login;
 mod merch;
 mod nav;
 mod stickers;
@@ -15,6 +17,8 @@ fn main() {
 
 #[component]
 pub fn App() -> impl IntoView {
+    provide_context(account::User::new("Luc".to_owned(), "Very secret password".to_owned()));
+
     view! {
         <Router trailing_slash=leptos_router::TrailingSlash::Redirect>
             <main class="bg-darker text-txt-dark selection:bg-sm-light">
