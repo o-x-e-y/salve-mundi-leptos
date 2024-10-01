@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="639" height="266" viewBox="0 0 639 266" xml:space="preserve">
+<desc>Created with Fabric.js 3.6.6</desc>
+<defs>
+</defs>
+<g transform="matrix(6.39 0 0 2.67 319.75 133.5)"  >
+<linearGradient id="SVGID_985" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 1 -50 -50)"  x1="50" y1="0" x2="50" y2="100">
+<stop offset="0%" style="stop-color:rgba(81, 214, 255, 1);"/>
+<stop offset="22.535%" style="stop-color:rgba(235, 91, 223, 1);"/>
+</linearGradient>
+<polygon style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_985); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  points="-50,-50 -50,50 50,50 50,-50 " />
+</g>
+</svg>
